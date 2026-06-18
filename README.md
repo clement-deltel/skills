@@ -12,7 +12,8 @@ Personal collection of agent skills that I use every day.
 
 ### Software
 
-- **[docker-compose-to-prod](./skills/software/docker-compose-to-prod/SKILL.md)**: transforms a developer-grade compose.yaml into a production-hardened version.
+- **[docker-compose-to-prod](skills/software/docker-compose-to-prod/SKILL.md)**: transform a developer-grade compose.yaml into a production-hardened version.
+- **[env-config-generator](skills/software/env-config-generator/SKILL.md)**: generate a structured environment-variables configuration file for any service.
 
 ## Resources
 
