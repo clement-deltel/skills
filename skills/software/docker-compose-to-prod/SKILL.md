@@ -7,7 +7,7 @@ description: Transforms a developer-grade compose.yaml (plaintext secrets, named
 
 Deterministic transform. Apply every rule. No judgment calls beyond what's listed below.
 
-## Required inputs
+## Input
 
 Resolve before producing output. Do not guess.
 
@@ -15,7 +15,7 @@ Resolve before producing output. Do not guess.
 - **Reverse proxy** — default `traefik`. If `none`: omit Traefik labels, `proxy-net`.
 - **Public-facing service(s)** — receives `proxy-net` + Traefik labels + DNS. If unstated, infer from the service with a web-facing port (80/443/3000/8080) and confirm with the user before proceeding.
 
-## Procedure
+## Instructions
 
 1. Inventory every service: role, `depends_on`/`links`, ports, volumes, env vars, anchors/aliases. Flag anything ambiguous under "Manual review required" — do not resolve it silently.
 2. Classify into tiers. Preserve original order within each tier.
@@ -23,7 +23,7 @@ Resolve before producing output. Do not guess.
    - **Tier 2**: stateful infra — databases, object stores (Postgres, MariaDB, InfluxDB, MinIO)
    - **Tier 3**: app workers — background processors, queue consumers
    - **Tier 4**: app web/API — public-facing
-3. Apply every rule in `references/rules.md` to every service. Read it before writing output.
+3. Apply every rule in [rules reference](references/rules.md) to every service. Read it before writing output.
 4. Build top-level `networks:` — `internal-net` always; `proxy-net` (`external: true`) only if a reverse proxy is in scope.
 5. Emit the five output sections below, in order. No commentary outside them.
 
